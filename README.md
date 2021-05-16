@@ -8,7 +8,7 @@ data_clean.py: We cleaned the data and created labels so the data can suit the N
 
 feature_extraction.py: Functions we are going to use to parse the datasets, split data into training and test set, and convert labels to a vector y, mapped to 0 and 1
 
-
+model.py: Train and evaluate the Naive Bayes model and the Logistic Regression model. And compare their performance on three datasets. 
 
 Data we used: 
 
