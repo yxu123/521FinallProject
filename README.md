@@ -2,11 +2,11 @@
 521FinalProject(Runze, Ze, Yuquan)
 
 
-data_clean.py:
+data_clean.py: We cleaned the data and created labels so the data can suit the Naive Bayes and the Logistic Regression. 
 
 
 
-feature_extraction.py:
+feature_extraction.py: Functions we are going to use to parse the datasets, split data into training and test set, and convert labels to a vector y, mapped to 0 and 1
 
 
 
