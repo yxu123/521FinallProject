@@ -10,6 +10,9 @@ https://www.kaggle.com/snap/amazon-fine-food-reviews
 https://www.kaggle.com/azimulh/tweets-data-for-authorship-attribution-modelling?select=tweet.csv
   (tweet.csv)
 
+third-party libraries necessary to run the code：pandas, numpy, gensim, nltk, string, argparse, sklearn, feature_extraction
+
+
 data_clean.py: We cleaned the data and created labels so the data can suit the Naive Bayes and the Logistic Regression. 
 
 feature_extraction.py: Functions we are going to use to parse the datasets, split data into training and test set, and convert labels to a vector y, mapped to 0 and 1
