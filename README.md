@@ -20,3 +20,7 @@ feature_extraction.py: Functions we are going to use to parse the datasets, spli
 model.py: Train and evaluate the Naive Bayes model and the Logistic Regression model. And compare their performance on three datasets. 
 
 models_NB.py: models_NB.py will calculate the Accuracy, recall rate, precision and the f1_score for the dataset you have selected. To select the dataset, delete the "#" before the parser.add_argument, like:parser.add_argument("--data_file", type=str, default="review.csv", help="dev file"). Make sure the model_NB.py, feature_extraction.py and all the datasets are in the same directory. 
+
+To run the models on Amazon fine food reviews dataset: python model.py --data_file review.csv 
+To run the models on Tweets dataset: python model.py --datafile new_tweet.csv
+To run the models on Fake and real news dataset: python model.py --datafile new.csv
