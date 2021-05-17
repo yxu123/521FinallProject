@@ -1,27 +1,33 @@
 import pandas as pd
 import re, string
+from nltk import word_tokenize
 
 # Read csv files as pandas data frames
 true=pd.read_csv('True.csv')
 fake=pd.read_csv('Fake.csv')
 
 # Add new column to data frames
-true['true_or_false']='true'
-fake['true_or_false']='fake'
+
+true['true_or_fake']=['true']*len(true)
+fake['true_or_fake']=['fake']*len(fake)
 
 # Combine two data frames
-news=pd.concat([true,fake])
+news=pd.concat([true, fake],axis=0)
+#news=true.append(fake)
 
 # Drop columns we are not going to use
 news=news.drop(['date','title','subject'], axis=1)
 # Drop rows which contain missing value
 news=news.dropna()
+
+
 # Escape separator
 for i in range(len(news)):
-    news['text'].iloc[i]=re.sub(r'[^\w\s]',"",news['text'].iloc[i])
+    #news['text'].iloc[i]=" ".join(news['text'].iloc[i].split())
+    news['text'].iloc[i]=re.sub(r'[^\w\d]', " ",news['text'].iloc[i])
 
 # Write new dataset to a csv file
-news.to_csv('news.csv',sep=',',index=False,header=False)
+news.to_csv('news.csv',sep='\t',index=False,header=False)
 
 
 # Read csv file as pandas data frame
@@ -37,9 +43,10 @@ tweet.insert(0, 'texts', tweet['Tweet description'])
 tweet=tweet.drop('Tweet description',axis=1)
 # Escape separator
 for i in range(len(tweet)):
-    tweet['texts'].iloc[i] = re.sub(r'[^\w\s]', "", tweet['texts'].iloc[i])
+    tweet['texts'].iloc[i] = " ".join(tweet['texts'].iloc[i].split())
+    #tweet['texts'].iloc[i] = re.sub(r'[^\w\d]', " ", tweet['texts'].iloc[i])
 # Write the output to csv file
-tweet.to_csv('new_tweet.csv',sep=',',index=False,header=False)
+tweet.to_csv('new_tweet.csv',sep='\t',index=False,header=False)
 
 # Read csv file as pandas data frame
 review=pd.read_csv('Reviews.csv')
@@ -64,6 +71,7 @@ review['FiveStar']=fivestar
 review=review.drop('Score',axis=1)
 # Escape separator
 for i in range(len(review)):
-    review['Text'].iloc[i]= re.sub(r'[^\w\s]', "", review['Text'].iloc[i])
+    review['Text'].iloc[i] = " ".join(review['Text'].iloc[i].split())
+    #review['Text'].iloc[i]= re.sub(r'[^\w\d]', " ", review['Text'].iloc[i])
 # Write the output to csv file
-review.to_csv('review.csv',sep=',',index=False,header=False)
+review.to_csv('review.csv',sep='\t',index=False,header=False)

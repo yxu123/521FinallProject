@@ -12,7 +12,7 @@ def parse(data_file):
     texts=[]
     with open(data_file,'r') as data:
         for line in data:
-            fields = line.strip().split(",")
+            fields = line.split("\t")
             texts.append(fields[0])
             labels.append(fields[1])
     return labels,texts
@@ -92,3 +92,11 @@ def w2v(word2vec_file,texts):
     w2v_vectors = KeyedVectors.load_word2vec_format(word2vec_file, binary=False)
     toks = preprocess_text(texts)
     veclist = [w2v_vectors[tok] for tok in toks if tok in w2v_vectors]
+
+
+# zero rule algorithm for classification
+def zero_rule_algorithm_classification(train, test):
+    output_values = [row for row in train]
+    prediction = max(set(output_values), key=output_values.count)
+    predicted = [prediction for i in range(len(test))]
+    return predicted
