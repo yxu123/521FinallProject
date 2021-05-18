@@ -1,6 +1,9 @@
 # 521 Final Project
 Comparison Between Naive Bayes and Logistic Regression(Runze, Ze, Yuquan)
 
+This project compares the performance of Naïve Bayes and Logistic Regression on three different datasets based on the result of multiple evaluation metrics. 
+
+
 ## Data
 https://www.kaggle.com/clmentbisaillon/fake-and-real-news-dataset?select=True.csv
   (Fake.csv, Real.csv)
