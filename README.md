@@ -11,7 +11,6 @@ https://www.kaggle.com/snap/amazon-fine-food-reviews
 https://www.kaggle.com/azimulh/tweets-data-for-authorship-attribution-modelling?select=tweet.csv
   (tweet.csv)
 
-Because news.csv exceeds GitHub's file size limit of 100.00 MB, we didn't commit it.
 
 ## Third-party libraries necessary to run the code
 pandas, numpy, gensim, nltk, string, argparse, sklearn, feature_extraction
